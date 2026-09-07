@@ -78,6 +78,8 @@ java -jar target/attendance-system.jar
 Mavenが入っていない環境向けに、`run.bat`をダブルクリックするだけでビルド・起動できる
 簡易スクリプトも用意している（内部ではjavacとjavaを直接呼び出しており、Mavenの
 ローカルリポジトリ（`~/.m2/repository`）に依存関係のjarが存在することを前提にしている）。
+`run.bat`は他のソフトとの衝突を避けるためデフォルトでポート8081を使う
+（`http://localhost:8081/`）。別のポートにしたい場合は`run.bat 8082`のように指定する。
 
 ### デモ用アカウント
 
