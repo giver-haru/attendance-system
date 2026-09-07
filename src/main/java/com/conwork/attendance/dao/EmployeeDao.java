@@ -51,6 +51,19 @@ public class EmployeeDao {
         return result;
     }
 
+    public List<String> findAllDepartments() {
+        String sql = "SELECT DISTINCT department FROM employees ORDER BY department";
+        List<String> result = new ArrayList<>();
+        try (Connection conn = Database.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) result.add(rs.getString(1));
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return result;
+    }
+
     private Employee map(ResultSet rs) throws SQLException {
         Integer managerId = rs.getObject("manager_id") == null ? null : rs.getInt("manager_id");
         return new Employee(

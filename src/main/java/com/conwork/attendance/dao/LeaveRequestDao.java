@@ -65,6 +65,21 @@ public class LeaveRequestDao {
         return total;
     }
 
+    /** 承認済みで、開始日が本日以降の有給申請を全社員分まとめて返す（チームの有給予定一覧に使う）。 */
+    public List<LeaveRequest> findApprovedUpcoming(LocalDate today) {
+        String sql = "SELECT * FROM leave_requests WHERE status = 'APPROVED' AND start_date >= ? ORDER BY start_date";
+        List<LeaveRequest> result = new ArrayList<>();
+        try (Connection conn = Database.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(today));
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) result.add(map(rs));
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return result;
+    }
+
     public List<LeaveRequest> findPending() {
         String sql = "SELECT * FROM leave_requests WHERE status = 'PENDING' ORDER BY requested_at";
         List<LeaveRequest> result = new ArrayList<>();
