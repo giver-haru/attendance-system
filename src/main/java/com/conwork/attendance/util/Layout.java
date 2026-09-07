@@ -1,7 +1,7 @@
-package com.sunrise.attendance.util;
+package com.conwork.attendance.util;
 
-import com.sunrise.attendance.model.Employee;
-import com.sunrise.attendance.model.Role;
+import com.conwork.attendance.model.Employee;
+import com.conwork.attendance.model.Role;
 
 public final class Layout {
 
@@ -15,7 +15,7 @@ public final class Layout {
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <title>%s | Sunrise 勤怠管理システム</title>
+                    <title>%s | ConWork 勤怠管理システム</title>
                     <link rel="stylesheet" href="/static/style.css">
                 </head>
                 <body>
@@ -34,7 +34,7 @@ public final class Layout {
                 : "";
         return """
                 <header class="topbar">
-                    <div class="brand">Sunrise 勤怠管理システム</div>
+                    <div class="brand">ConWork 勤怠管理システム</div>
                     <nav>
                         <a href="/dashboard">ダッシュボード</a>
                         <a href="/attendance">勤怠一覧</a>

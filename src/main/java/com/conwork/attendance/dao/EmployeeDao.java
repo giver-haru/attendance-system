@@ -1,7 +1,7 @@
-package com.sunrise.attendance.dao;
+package com.conwork.attendance.dao;
 
-import com.sunrise.attendance.model.Employee;
-import com.sunrise.attendance.model.Role;
+import com.conwork.attendance.model.Employee;
+import com.conwork.attendance.model.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

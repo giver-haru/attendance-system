@@ -1,4 +1,4 @@
-package com.sunrise.attendance.model;
+package com.conwork.attendance.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;

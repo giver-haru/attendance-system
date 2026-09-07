@@ -1,4 +1,4 @@
-package com.sunrise.attendance.model;
+package com.conwork.attendance.model;
 
 public enum LeaveStatus {
     PENDING, APPROVED, REJECTED

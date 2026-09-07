@@ -1,7 +1,7 @@
-package com.sunrise.attendance.dao;
+package com.conwork.attendance.dao;
 
-import com.sunrise.attendance.model.LeaveRequest;
-import com.sunrise.attendance.model.LeaveStatus;
+import com.conwork.attendance.model.LeaveRequest;
+import com.conwork.attendance.model.LeaveStatus;
 
 import java.sql.Connection;
 import java.sql.Date;

@@ -1,17 +1,17 @@
-package com.sunrise.attendance;
+package com.conwork.attendance;
 
-import com.sunrise.attendance.dao.Database;
-import com.sunrise.attendance.filter.AuthFilter;
-import com.sunrise.attendance.servlet.AttendanceListServlet;
-import com.sunrise.attendance.servlet.ClockServlet;
-import com.sunrise.attendance.servlet.CsvExportServlet;
-import com.sunrise.attendance.servlet.DashboardServlet;
-import com.sunrise.attendance.servlet.LeaveApprovalServlet;
-import com.sunrise.attendance.servlet.LeaveRequestServlet;
-import com.sunrise.attendance.servlet.LoginServlet;
-import com.sunrise.attendance.servlet.LogoutServlet;
-import com.sunrise.attendance.servlet.RootServlet;
-import com.sunrise.attendance.servlet.StaticServlet;
+import com.conwork.attendance.dao.Database;
+import com.conwork.attendance.filter.AuthFilter;
+import com.conwork.attendance.servlet.AttendanceListServlet;
+import com.conwork.attendance.servlet.ClockServlet;
+import com.conwork.attendance.servlet.CsvExportServlet;
+import com.conwork.attendance.servlet.DashboardServlet;
+import com.conwork.attendance.servlet.LeaveApprovalServlet;
+import com.conwork.attendance.servlet.LeaveRequestServlet;
+import com.conwork.attendance.servlet.LoginServlet;
+import com.conwork.attendance.servlet.LogoutServlet;
+import com.conwork.attendance.servlet.RootServlet;
+import com.conwork.attendance.servlet.StaticServlet;
 import jakarta.servlet.DispatcherType;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.FilterHolder;
@@ -48,7 +48,7 @@ public class Main {
         server.start();
 
         System.out.println("=================================================");
-        System.out.println(" Sunrise Industries 勤怠管理システム 起動しました");
+        System.out.println(" ConWork 勤怠管理システム 起動しました");
         System.out.println(" URL: http://localhost:" + port + "/");
         System.out.println(" 管理者ログイン: admin001 / admin123");
         System.out.println(" 社員ログイン  : emp001   / password123");

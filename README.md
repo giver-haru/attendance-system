@@ -1,4 +1,4 @@
-# Sunrise Industries 勤怠管理システム
+# ConWork 勤怠管理システム
 
 ## 作った理由
 
@@ -8,7 +8,7 @@
 
 ## 想定シナリオ
 
-株式会社サンライズ工業（従業員150名規模の製造業）が、紙とExcelでの勤怠管理・有給申請から、このシステムに乗り換える、という想定でシナリオと設計を考えました。
+特定の1社に絞るのではなく、**従業員100〜200人規模くらいの企業全般**を想定してシナリオと設計を考えました。この規模だと、KING OF TIMEのような多機能な勤怠SaaSは機能過多・コスト過多になりがちな一方、紙やExcelでの管理はまだミスや紛失のリスクが残ります。その間を埋める「必要十分な機能に絞った勤怠管理システム」として`ConWork`を位置づけています。
 
 ## 使用技術
 
@@ -49,7 +49,7 @@ Spring Bootのようなフレームワークを最初から使うこともでき
 ## ディレクトリ構成
 
 ```
-src/main/java/com/sunrise/attendance/
+src/main/java/com/conwork/attendance/
 ├── Main.java          サーバー起動・ルーティング定義
 ├── model/              Employee, AttendanceRecord, LeaveRequest など
 ├── dao/                JDBCによるデータアクセス層

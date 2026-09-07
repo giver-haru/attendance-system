@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sunrise</groupId>
+    <groupId>com.conwork</groupId>
     <artifactId>attendance-system</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -50,7 +50,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.sunrise.attendance.Main</mainClass>
+                                    <mainClass>com.conwork.attendance.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

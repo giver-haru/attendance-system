@@ -1,7 +1,7 @@
-package com.sunrise.attendance.filter;
+package com.conwork.attendance.filter;
 
-import com.sunrise.attendance.model.Employee;
-import com.sunrise.attendance.model.Role;
+import com.conwork.attendance.model.Employee;
+import com.conwork.attendance.model.Role;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

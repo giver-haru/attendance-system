@@ -1,10 +1,10 @@
-package com.sunrise.attendance.servlet;
+package com.conwork.attendance.servlet;
 
-import com.sunrise.attendance.dao.AttendanceDao;
-import com.sunrise.attendance.dao.EmployeeDao;
-import com.sunrise.attendance.model.AttendanceRecord;
-import com.sunrise.attendance.model.Employee;
-import com.sunrise.attendance.model.Role;
+import com.conwork.attendance.dao.AttendanceDao;
+import com.conwork.attendance.dao.EmployeeDao;
+import com.conwork.attendance.model.AttendanceRecord;
+import com.conwork.attendance.model.Employee;
+import com.conwork.attendance.model.Role;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

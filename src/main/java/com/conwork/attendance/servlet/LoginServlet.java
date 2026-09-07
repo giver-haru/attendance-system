@@ -1,9 +1,9 @@
-package com.sunrise.attendance.servlet;
+package com.conwork.attendance.servlet;
 
-import com.sunrise.attendance.dao.EmployeeDao;
-import com.sunrise.attendance.model.Employee;
-import com.sunrise.attendance.util.Layout;
-import com.sunrise.attendance.util.PasswordUtil;
+import com.conwork.attendance.dao.EmployeeDao;
+import com.conwork.attendance.model.Employee;
+import com.conwork.attendance.util.Layout;
+import com.conwork.attendance.util.PasswordUtil;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         String errorHtml = error == null ? "" : "<p class=\"error\">%s</p>".formatted(Layout.escape(error));
         String body = """
                 <div class="login-card">
-                    <h1>Sunrise Industries</h1>
+                    <h1>ConWork</h1>
                     <p class="subtitle">勤怠管理システム</p>
                     %s
                     <form method="post" action="/login">

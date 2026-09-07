@@ -1,4 +1,4 @@
-package com.sunrise.attendance.model;
+package com.conwork.attendance.model;
 
 import java.time.Duration;
 import java.time.LocalDate;

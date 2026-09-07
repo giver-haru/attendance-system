@@ -1,6 +1,6 @@
-package com.sunrise.attendance.dao;
+package com.conwork.attendance.dao;
 
-import com.sunrise.attendance.model.AttendanceRecord;
+import com.conwork.attendance.model.AttendanceRecord;
 
 import java.sql.Connection;
 import java.sql.Date;

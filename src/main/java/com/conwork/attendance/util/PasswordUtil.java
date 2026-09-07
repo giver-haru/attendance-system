@@ -1,4 +1,4 @@
-package com.sunrise.attendance.util;
+package com.conwork.attendance.util;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
