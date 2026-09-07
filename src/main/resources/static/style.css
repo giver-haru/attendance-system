@@ -1,0 +1,97 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: #f2f4f7;
+    color: #1f2937;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+
+.topbar {
+    background: #10305c;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.topbar .brand { font-weight: 600; font-size: 1.1rem; }
+.topbar nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.topbar nav a { color: #d7e3f5; text-decoration: none; font-size: 0.92rem; }
+.topbar nav a:hover { color: #fff; text-decoration: underline; }
+.topbar .user { color: #a9c1e0; font-size: 0.88rem; }
+.topbar .logout { background: #1b4a82; padding: 6px 12px; border-radius: 4px; }
+
+h1 { font-size: 1.4rem; margin-bottom: 16px; color: #10305c; }
+h2 { font-size: 1.05rem; color: #10305c; margin: 0 0 12px; }
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.status { font-size: 1rem; margin-bottom: 12px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e7eb; font-size: 0.92rem; }
+th { color: #6b7280; font-weight: 600; font-size: 0.82rem; text-transform: uppercase; }
+
+.stats { display: flex; gap: 32px; }
+.stat { display: flex; flex-direction: column; }
+.stat .num { font-size: 1.8rem; font-weight: 700; color: #10305c; }
+.stat .label { color: #6b7280; font-size: 0.85rem; }
+
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; }
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-approved { background: #d1fae5; color: #065f46; }
+.badge-rejected { background: #fee2e2; color: #991b1b; }
+
+button, .primary {
+    background: #10305c;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.92rem;
+}
+button:hover { background: #1b4a82; }
+.approve { background: #067647; }
+.reject { background: #b42318; margin-left: 8px; }
+.inline { display: inline; }
+
+.link { display: inline-block; margin-top: 12px; color: #1b4a82; font-weight: 600; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+.form label { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; font-size: 0.9rem; color: #374151; }
+.form input, .form textarea {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    font-family: inherit;
+}
+
+.error { background: #fee2e2; color: #991b1b; padding: 10px 14px; border-radius: 6px; margin-bottom: 14px; font-size: 0.88rem; }
+
+.login-card {
+    max-width: 380px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 36px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.login-card h1 { font-size: 1.3rem; margin-bottom: 2px; }
+.login-card .subtitle { color: #6b7280; margin-bottom: 20px; font-size: 0.9rem; }
+.login-card form { text-align: left; }
+.login-card label { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; font-size: 0.88rem; color: #374151; }
+.login-card input { padding: 9px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.92rem; }
+.login-card button { width: 100%; padding: 11px; font-size: 0.95rem; margin-top: 4px; }
+.login-card .hint { margin-top: 18px; font-size: 0.78rem; color: #9ca3af; }
