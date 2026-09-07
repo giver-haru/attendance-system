@@ -75,6 +75,10 @@ java -jar target/attendance-system.jar
 
 ブラウザで `http://localhost:8080/` を開く。
 
+Mavenが入っていない環境向けに、`run.bat`をダブルクリックするだけでビルド・起動できる
+簡易スクリプトも用意している（内部ではjavacとjavaを直接呼び出しており、Mavenの
+ローカルリポジトリ（`~/.m2/repository`）に依存関係のjarが存在することを前提にしている）。
+
 ### デモ用アカウント
 
 | 役割 | 社員コード | パスワード |
