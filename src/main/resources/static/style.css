@@ -33,12 +33,14 @@ h2 { font-size: 1.05rem; color: #10305c; margin: 0 0 12px; }
     padding: 20px 24px;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    /* スマホなど横幅が狭い画面で表がはみ出さないよう、カード単位で横スクロールさせる */
+    overflow-x: auto;
 }
 
 .status { font-size: 1rem; margin-bottom: 12px; }
 
-table { width: 100%; border-collapse: collapse; }
-th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e7eb; font-size: 0.92rem; }
+table { width: 100%; min-width: 480px; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e7eb; font-size: 0.92rem; white-space: nowrap; }
 th { color: #6b7280; font-weight: 600; font-size: 0.82rem; text-transform: uppercase; }
 
 .stats { display: flex; gap: 32px; }

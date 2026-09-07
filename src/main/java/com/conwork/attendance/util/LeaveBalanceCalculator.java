@@ -10,8 +10,10 @@ import java.time.temporal.ChronoUnit;
  */
 public final class LeaveBalanceCalculator {
 
-    // 労働基準法の法定付与日数（勤続6ヶ月ごとの区分）に基づく
-    private static final int[] GRANT_DAYS_BY_HALF_YEAR_STEP = {0, 10, 11, 12, 14, 16, 18, 20};
+    // 労働基準法の法定付与日数。index=0は未付与、index=1以降は
+    // 勤続6ヶ月・1年6ヶ月・2年6ヶ月・3年6ヶ月・4年6ヶ月・5年6ヶ月・6年6ヶ月以上の区分に対応する。
+    // （最初の付与だけ6ヶ月、以降は12ヶ月ごとに区分が上がる点に注意）
+    private static final int[] GRANT_DAYS_BY_STEP = {0, 10, 11, 12, 14, 16, 18, 20};
 
     private LeaveBalanceCalculator() {}
 
@@ -25,7 +27,8 @@ public final class LeaveBalanceCalculator {
     public static int grantedDays(LocalDate hireDate, LocalDate fiscalYearStart) {
         if (hireDate.isAfter(fiscalYearStart)) return 0;
         long serviceMonths = ChronoUnit.MONTHS.between(hireDate, fiscalYearStart);
-        int step = (int) Math.min(serviceMonths / 6, GRANT_DAYS_BY_HALF_YEAR_STEP.length - 1);
-        return GRANT_DAYS_BY_HALF_YEAR_STEP[step];
+        if (serviceMonths < 6) return 0;
+        int step = (int) Math.min((serviceMonths - 6) / 12 + 1, GRANT_DAYS_BY_STEP.length - 1);
+        return GRANT_DAYS_BY_STEP[step];
     }
 }
