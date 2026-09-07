@@ -10,6 +10,7 @@ import com.conwork.attendance.servlet.LeaveApprovalServlet;
 import com.conwork.attendance.servlet.LeaveRequestServlet;
 import com.conwork.attendance.servlet.LoginServlet;
 import com.conwork.attendance.servlet.LogoutServlet;
+import com.conwork.attendance.servlet.PayrollCsvExportServlet;
 import com.conwork.attendance.servlet.RootServlet;
 import com.conwork.attendance.servlet.StaticServlet;
 import jakarta.servlet.DispatcherType;
@@ -39,6 +40,7 @@ public class Main {
         context.addServlet(new ServletHolder(new LeaveApprovalServlet()), "/leave/approve");
         context.addServlet(new ServletHolder(new AttendanceListServlet()), "/attendance");
         context.addServlet(new ServletHolder(new CsvExportServlet()), "/export/csv");
+        context.addServlet(new ServletHolder(new PayrollCsvExportServlet()), "/export/payroll-csv");
         context.addServlet(new ServletHolder(new StaticServlet()), "/static/style.css");
 
         context.addFilter(new FilterHolder(new AuthFilter()), "/*", EnumSet.of(DispatcherType.REQUEST));

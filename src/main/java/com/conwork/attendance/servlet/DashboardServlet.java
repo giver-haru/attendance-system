@@ -9,6 +9,7 @@ import com.conwork.attendance.model.LeaveRequest;
 import com.conwork.attendance.model.LeaveStatus;
 import com.conwork.attendance.model.Role;
 import com.conwork.attendance.util.Layout;
+import com.conwork.attendance.util.LeaveBalanceCalculator;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -41,6 +42,11 @@ public class DashboardServlet extends HttpServlet {
 
         long totalOvertime = monthRecords.stream().mapToLong(AttendanceRecord::getOvertimeMinutes).sum();
         long workedDays = monthRecords.stream().filter(r -> r.getClockIn() != null).count();
+
+        LocalDate fiscalYearStart = LeaveBalanceCalculator.currentFiscalYearStart(today);
+        int grantedLeaveDays = LeaveBalanceCalculator.grantedDays(current.getHireDate(), fiscalYearStart);
+        long usedLeaveDays = leaveRequestDao.sumApprovedDaysSince(current.getId(), fiscalYearStart);
+        long remainingLeaveDays = grantedLeaveDays - usedLeaveDays;
 
         String status;
         String actionButton;
@@ -83,7 +89,10 @@ public class DashboardServlet extends HttpServlet {
                     </div>
                 </section>
                 <section class="card">
-                    <h2>有給申請の状況</h2>
+                    <h2>有給休暇</h2>
+                    <div class="stats">
+                        <div class="stat"><span class="num">%d</span><span class="label">残日数（付与%d日）</span></div>
+                    </div>
                     <table>
                         <thead><tr><th>期間</th><th>理由</th><th>ステータス</th></tr></thead>
                         <tbody>%s</tbody>
@@ -93,6 +102,7 @@ public class DashboardServlet extends HttpServlet {
                 """.formatted(Layout.escape(current.getName()), status, actionButton,
                 YearMonth.now().format(DateTimeFormatter.ofPattern("yyyy年M月")),
                 workedDays, totalOvertime / 60.0,
+                remainingLeaveDays, grantedLeaveDays,
                 leaveRows.isEmpty() ? "<tr><td colspan=\"3\">申請履歴はありません</td></tr>" : leaveRows.toString());
     }
 
@@ -127,6 +137,7 @@ public class DashboardServlet extends HttpServlet {
                         <tbody>%s</tbody>
                     </table>
                     <a class="link" href="/export/csv">今月の勤怠をCSVで出力</a>
+                    <a class="link" href="/export/payroll-csv">給与計算用CSVを出力</a>
                 </section>
                 """.formatted(pendingCount, rows.toString());
     }

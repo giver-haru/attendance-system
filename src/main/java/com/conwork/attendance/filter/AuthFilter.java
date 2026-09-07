@@ -20,7 +20,7 @@ import java.util.Set;
 public class AuthFilter implements Filter {
 
     private static final Set<String> PUBLIC_PATHS = Set.of("/login", "/", "/static/style.css");
-    private static final Set<String> ADMIN_ONLY_PATHS = Set.of("/leave/approve", "/export/csv");
+    private static final Set<String> ADMIN_ONLY_PATHS = Set.of("/leave/approve", "/export/csv", "/export/payroll-csv");
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)

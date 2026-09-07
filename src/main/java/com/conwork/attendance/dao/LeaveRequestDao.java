@@ -45,6 +45,26 @@ public class LeaveRequestDao {
         return result;
     }
 
+    /** 指定日以降に開始する、承認済みの有給取得日数の合計を返す（残日数の消化分の計算に使う）。 */
+    public long sumApprovedDaysSince(int employeeId, LocalDate since) {
+        String sql = "SELECT start_date, end_date FROM leave_requests WHERE employee_id = ? AND status = 'APPROVED' AND start_date >= ?";
+        long total = 0;
+        try (Connection conn = Database.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, employeeId);
+            ps.setDate(2, Date.valueOf(since));
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    LocalDate start = rs.getDate("start_date").toLocalDate();
+                    LocalDate end = rs.getDate("end_date").toLocalDate();
+                    total += java.time.temporal.ChronoUnit.DAYS.between(start, end) + 1;
+                }
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return total;
+    }
+
     public List<LeaveRequest> findPending() {
         String sql = "SELECT * FROM leave_requests WHERE status = 'PENDING' ORDER BY requested_at";
         List<LeaveRequest> result = new ArrayList<>();
